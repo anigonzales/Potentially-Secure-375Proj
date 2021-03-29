@@ -12,7 +12,7 @@ GPIO.setup(relay_pin, GPIO.OUT)
 GPIO.output(relay_pin, 0)
 
 with open('labels', 'rb') as f:
-	dicti = pickle.load(f)
+	dict = pickle.load(f)
 	f.close()
 
 camera = PiCamera()
@@ -23,7 +23,7 @@ rawCapture = PiRGBArray(camera, size=(640, 480))
 
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv2.face.createLBPHFaceRecognizer()
-recognizer.read("trainer.yml")
+recognizer.load("trainer.yml")
 
 font = cv2.FONT_HERSHEY_SIMPLEX
 
